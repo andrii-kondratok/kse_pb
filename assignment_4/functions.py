@@ -38,6 +38,14 @@ def play_game():
 
     while tries <= 6:
         guess = input(f"Attempt {tries}/6 – Enter guess: ").lower()
+        if guess:
+            print("Обробка відповіді....")
+        else:
+            print("Введи слово, це гра про слова")
+            continue
+        if not guess.isalpha():
+            print("Хитрий лис у фарбу впав, як говорить моя мудрість.... Вводь тільки букви")
+            continue
         
         if len(guess)!=secret_word_len:
             print(f"Wrong length. Expected {secret_word_len}")
@@ -51,6 +59,3 @@ def play_game():
         tries += 1
     else:
         print(f"You lose! The word was: {secret_word}")
-
-# Запуск гри
-play_game()
